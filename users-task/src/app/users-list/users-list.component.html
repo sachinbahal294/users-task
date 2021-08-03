@@ -1,1 +1,30 @@
-<p>users-list works!</p>
+<h2>Users List</h2>
+
+<div class="col-md-12" style="padding: 10px;">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usr of usersList;let i=index;">
+            <th scope="row">{{usr.id}}</th>
+            <td>
+                <img [src]="usr.avatar" />
+            </td>
+            <td>{{usr.first_name}} {{usr.last_name}}</td>
+            <td>{{usr.email}}</td>
+            <td>
+                <button type="button" class="btn btn-primary" (click)="viewUser(i)">View</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="deleteUser(i)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
